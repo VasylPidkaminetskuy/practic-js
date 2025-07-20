@@ -111,3 +111,26 @@ listElem.innerHTML += markup;
 За натисканням на кнопку "Вивести результат" виводиться сума значення, а також статистика з
 інформацією про те, яка кнопка була натиснута скільки разів.
 */
+
+// Створіть контейнер div (з класом number-container) в HTML-документі
+// та динамічно створіть 100 блоків (з класом number) наповнивши їх рандомними
+// числами від 1 до 100 і додайте їх до контейнера div(numberContainer).
+// Парні числа повинні мати зелений фон (додати клас even),
+// Непарні числа - жовтий фон (додати клас odd).
+
+const randomNumber = () => Math.floor(Math.random() * 100) + 1;
+const searchElement = document.querySelector('.number-container');
+for (let i = 0; i < 100; i++) {
+  const numberCreate = randomNumber();
+  const createElement = document.createElement('div');
+  createElement.classList.add('number');
+  createElement.textContent = numberCreate
+  
+  if (numberCreate % 2 === 0) {
+    createElement.classList.add('even');
+  } else {
+    createElement.classList.add('odd');
+  }
+
+  searchElement.append(createElement);
+}
